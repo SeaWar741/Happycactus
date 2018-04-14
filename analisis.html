@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Analisis</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -90,8 +90,52 @@
     <!--Main Navigation-->
     <!--Card-->
     <body>
-        <div class="container" id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6426.2814214665705!2d-99.21741235661419!3d20.415074058543432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI0JzU0LjMiTiA5OcKwMTInNTEuNCJX!5e1!3m2!1ses!2smx!4v1523584940307"  frameborder="0" id="map-google" allowfullscreen></iframe>
+        <div class="card" id="content-home">
+            <div class="card-body" >
+                <h1>Biología</h1>
+            </div>
+            <div class="card-body">
+                <h3>insertar analisis</h3>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+
+        <div class="card" id="content-home2">
+            <div class="card-body" >
+                <h1>Física</h1>
+            </div>
+            <div class="card-body">
+                <h3>insertar analisis</h3>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+
+        <div class="card" id="content-home2">
+            <div class="card-body" >
+                <h1>Química</h1>
+            </div>
+            <div class="card-body">
+                <h3>insertar analisis</h3>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+
+        <div class="card" id="content-home3">
+            <div class="card-body" >
+                <h1>Análisis de eficiencia de crecimiento poblacional</h1>
+            </div>
+            <div class="card-body">
+                <h3>insertar analisis</h3>
+            </div>
+            <div class="card-body">
+
+            </div>
         </div>
 
     <!--/.Card-->
@@ -145,6 +189,18 @@
     <!--/.Footer-->
 
     <!-- SCRIPTS -->
+
+    <script type="text/javascript">
+        // Make sure in jsFiddle you have selected option onLoad
+        (function() {
+          var cx = '017643444788069204610:4gvhea_mvga'; // Insert your own Custom Search engine ID here
+          var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+          gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
+              '//www.google.com/cse/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+
     <!-- JQuery -->
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap tooltips -->
@@ -161,6 +217,10 @@
 </body>
 
 <style type="text/css">
+        #Analisis-card-begining{
+            display: block;
+            margin-top: 80px;
+        }
         #map-google{
             display: block;
             margin-left: auto;
@@ -180,10 +240,28 @@
             padding: 0px;
         }
         #content-home {
+            display: block;
             margin-top: 80px;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            max-width: 1000px;
+        }
+
+        #content-home2 {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            max-width: 1000px;
+        }
+
+        #content-home3 {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 120px;
+            max-width: 1000px;
         }
 
         #home-logo{
@@ -210,7 +288,7 @@
         }
         #analisis-button{
             padding: 15px;
-            color: grey;
+            color: black;
         }
         #tips-button{
             padding: 15px;
@@ -218,7 +296,7 @@
         }
         #location-button{
             padding: 15px;
-            color: black;
+            color: grey;
         }
         .btn {
           background-color: white;
