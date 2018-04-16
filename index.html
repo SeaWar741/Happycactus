@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Home</title>
     <!-- Font Awesome -->
@@ -95,6 +97,7 @@
             <img src="./img/logos/logo.png" alt="HappyCactus Logo" id="home-logo">
         </div>
         <div class="card-body">
+          <button id="goFS">Go fullscreen</button>
             <h1>Bienvenido</h1>
         </div>
         <div class="card-body">
@@ -114,7 +117,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Tips para tu cactacea
                 <span class="badge badge-primary badge-pill">
-                   <i class="material-icons">lightbulb_outline</i> 
+                   <i class="material-icons">lightbulb_outline</i>
                 </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -125,7 +128,7 @@
             </li>
         </ul>
         </div>
-        
+
     </div>
     <!--/.Card-->
 
@@ -133,8 +136,8 @@
 
     <!--/.Copyright-->
     <footer>
-        <nav class="navbar fixed-bottom navbar-white white">
-        <div class="container" id="nav-container">
+        <nav class="navbar fixed-bottom navbar-white white" id="nav-bar">
+        <div class="container">
             <div class="row" id="navigation-home">
                 <div class="col-*-*">
                     <button class="btn">
@@ -191,9 +194,23 @@
         // Animations initialization
         new WOW().init();
     </script>
+
+    <script>
+      var goFS = document.getElementById("goFS");
+      goFS.addEventListener("click", function() {
+          document.body.requestFullscreen();
+      }, false);
+    </script>
+
 </body>
 
 <style type="text/css">
+        #navigation-home{
+          display: grid;
+          margin: auto;
+          grid-template-columns: repeat(5, 1fr);
+          grid-column-gap: 8px;
+        }
         #content-home {
             margin-top: 80px;
             margin-left: auto;
@@ -202,7 +219,6 @@
             max-width: 1000px;
 
         }
-
         #home-logo{
             display: block;
             margin-right: auto;
@@ -211,33 +227,25 @@
             margin-top: auto;
             height: auto;
         }
-
-        #navigation-home{
-              display: grid;
-              margin: auto;
-              max-height: 80px;              
-              margin: auto;
-              grid-template-columns: repeat(5, 1fr);
-              grid-column-gap: 10px;
-        }
         #home-button{
             color:black;
-            padding: 15px;
+            padding: 6px;
+            margin: auto;
         }
         #search-button{
-            padding: 15px;
+            padding: 6px;
             color: grey;
         }
         #analisis-button{
-            padding: 15px;
+            padding: 6px;
             color: grey;
         }
         #tips-button{
-            padding: 15px;
+            padding: 6px;
             color: grey;
         }
         #location-button{
-            padding: 15px;
+            padding: 6px;
             color: grey;
         }
         .btn {
