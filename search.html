@@ -444,9 +444,10 @@
 
         #navigation-home{
           display: grid;
-          margin: auto;
+          margin-left: auto;
+          margin-right: auto;
           grid-template-columns: repeat(5, 1fr);
-          grid-column-gap: 8px;
+          grid-column-gap: auto;
         }
         #content-home {
             margin-top: 80px;
@@ -456,24 +457,33 @@
             max-width: 1000px;
 
         }
+        #home-logo{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 350px;
+            margin-top: auto;
+            height: auto;
+        }
         #home-button{
-            color:grey;
-            padding: 8px;
+            color:black;
+            padding: 6px;
+            margin: auto;
         }
         #search-button{
-            padding: 8px;
-            color: black;
+            padding: 6px;
+            color: grey;
         }
         #analisis-button{
-            padding: 8px;
+            padding: 6px;
             color: grey;
         }
         #tips-button{
-            padding: 8px;
+            padding: 6px;
             color: grey;
         }
         #location-button{
-            padding: 8px;
+            padding: 6px;
             color: grey;
         }
         .btn {
