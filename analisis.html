@@ -89,64 +89,108 @@
 
     </header>
     <!--Main Navigation-->
-    <!--Card-->
     <body>
-        <div class="card" id="content-home">
-            <div class="card-body" >
-                <h1>Biología</h1>
-            </div>
-            <div class="card-body">
-                <h3>insertar analisis</h3>
-            </div>
-            <div class="card-body">
+        <div class="container" id="context">
 
+            <!--Inicio ciencia-->
+            <div class="card card-cascade" id="Analisis-card-begining">
+                <!--Inicio de especie-->
+                <div class="view gradient-card-header blue-gradient">
+                    <h2 class="h2-responsive" id="title-species">Física</h2>
+                    <p></p>
+                </div>
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <form name=formulario method=POST>
+                        <label class="texty" name= lblnum1>Luz(K):</label>
+                        <input class="boxy" type="number" id="luz"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Humedad(%):</label>
+                        <input class="boxy" type="number" id="Humedad"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Conductividad(mv):</label>
+                        <input class="boxy" type="number" id="Conductividad"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Resistencia Eléctrica(Ω):</label>
+                        <input class="boxy" type="number" id="resistencia"/>
+                        <br>
+                        <br>
+                        <input class="summy" type=button value="   +   " onclick="intensidad_electrica()"/>
+                        <br>
+                        <br>
+                        <br>
+                        <input class="boxy" type="text" name='resul' id="resul"/>
+                    </form>
+                </div>
+                <!--/.Card -->
             </div>
+            <!--/.Fin ciencia-->
+
+            <!--Inicio ciencia-->
+            <div class="card card-cascade" id="card-species">
+                <!--Inicio de especie-->
+                <div class="view gradient-card-header blue-gradient">
+                    <h2 class="h2-responsive" id="title-species">Química</h2>
+                    <p></p>
+                </div>
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <form name=formulario method=POST>
+                        <label class="texty" name= lblnum1>pH Inicial:</label>
+                        <input class="boxy" type="text" name='num' id="ph-inicial"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>pH Final:</label>
+                        <input class="boxy" type="text" name='num' id="ph-final"/>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <!--/.Card -->
+            </div>
+            <!--/.Fin ciencia-->
+
+            <!--Inicio ciencia-->
+            <div class="card card-cascade" id="card-species">
+                <!--Inicio de especie-->
+                <div class="view gradient-card-header blue-gradient">
+                    <h2 class="h2-responsive" id="title-species">Biología</h2>
+                    <p></p>
+                </div>
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <p>Insertar análisis</p>
+                </div>
+                <!--/.Card -->
+            </div>
+            <!--/.Fin ciencia-->
+
+            <!--Inicio ciencia-->
+            <div class="card card-cascade" id="card-species-final">
+                <!--Inicio de especie-->
+                <div class="view gradient-card-header blue-gradient">
+                    <h2 class="h2-responsive" id="title-species">Estado de crecimiento de la cactacea</h2>
+                    <p></p>
+                </div>
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <p>Estado de crecimiento de la cactacea</p>
+                </div>
+                <!--/.Card -->
+            </div>
+            <!--/.Fin ciencia-->
+
         </div>
-
-        <div class="card" id="content-home2">
-            <div class="card-body" >
-                <h1>Física</h1>
-            </div>
-            <div class="card-body">
-                <h3>insertar analisis</h3>
-            </div>
-            <div class="card-body">
-
-            </div>
-        </div>
-
-        <div class="card" id="content-home2">
-            <div class="card-body" >
-                <h1>Química</h1>
-            </div>
-            <div class="card-body">
-                <h3>insertar analisis</h3>
-            </div>
-            <div class="card-body">
-
-            </div>
-        </div>
-
-        <div class="card" id="content-home3">
-            <div class="card-body" >
-                <h1>Análisis de eficiencia de crecimiento poblacional</h1>
-            </div>
-            <div class="card-body">
-                <h3>insertar analisis</h3>
-            </div>
-            <div class="card-body">
-
-            </div>
-        </div>
-
-    <!--/.Card-->
-
     <!--Main layout-->
 
     <!--/.Copyright-->
     <footer>
-        <nav class="navbar fixed-bottom navbar-white white">
-        <div class="container">
+        <nav class="navbar fixed-bottom navbar-white white" id="navigation-bottom-bar">
+        <div class="container"style="
+         justify-content:  center;">
             <div class="row" id="navigation-home">
                 <div class="col-*-*">
                     <button class="btn">
@@ -190,16 +234,31 @@
     <!--/.Footer-->
 
     <!-- SCRIPTS -->
+    <script language='javascript'>
+        function intensidad_electrica(){
+            var conductividad= document.getElementById('Conductividad').value;
+            var resistencia= document.getElementById('resistencia').value;
+            var intensidad  = Conductividad/resistencia;
+            var total =(intensidad.value/conductividad.value)/10;
+            document.getElementById('resul').value = total.value;
+        }
+    </script>
 
-    <script type="text/javascript">
-        // Make sure in jsFiddle you have selected option onLoad
-        (function() {
-          var cx = '017643444788069204610:4gvhea_mvga'; // Insert your own Custom Search engine ID here
-          var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-          gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
-              '//www.google.com/cse/cse.js?cx=' + cx;
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-        })();
+    <script language='javascript'>
+        function result(){
+            var ph_ideal;
+            var resistencia_ideal;
+            var conductividad_ideal =8;
+
+            var arr = document.getElementsByName('num');
+                
+
+            for(var i=0;i<arr.length;i++){
+                if(parseInt(arr[i].value))
+                    tot += parseInt(arr[i].value);
+                }
+                document.getElementById('resul').value = tot;
+            }
     </script>
 
     <!-- JQuery -->
@@ -215,15 +274,44 @@
         // Animations initialization
         new WOW().init();
     </script>
+
+
 </body>
 
 <style type="text/css">
-        .navbar{
+        .texty{
+            display: block;
+            text-align: left;
+        }
+        #navigation-bottom-bar{
           height: 58px;
         }
+        #title-species{
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+
+        #card-species{
+            display: block;
+            margin-top: 10px;
+        }
+
+        #species-image{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+            width: 25%;
+        }
+
         #Analisis-card-begining{
             display: block;
             margin-top: 80px;
+        }
+        #card-species-final{
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 80px;
         }
         #map-google{
             display: block;
