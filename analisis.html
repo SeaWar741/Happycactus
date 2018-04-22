@@ -92,7 +92,7 @@
     <body>
         <div class="container" id="context">
 
-            <!--Inicio ciencia-->
+            <!--Inicio ciencia FISICA-->
             <div class="card card-cascade" id="Analisis-card-begining">
                 <!--Inicio de especie-->
                 <div class="view gradient-card-header blue-gradient">
@@ -102,12 +102,47 @@
                 <!--Card content-->
                 <div class="card-body text-center">
                     <form name=formulario method=POST>
-                        <label class="texty" name= lblnum1>Luz(K):</label>
+                        <label class="texty" name= lblnum1>Luz (K):</label>
                         <input class="boxy" type="number" id="luz"/>
                         <br>
                         <br>
-                        <label class="texty" name= lblnum1>Humedad(%):</label>
+                        <label class="texty" name= lblnum1>Temperatura ambiental (°C):</label>
+                        <input class="boxy" type="number" id="temp"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Humedad (%):</label>
                         <input class="boxy" type="number" id="Humedad"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Agua en la tierra (%):</label>
+                        <input class="boxy" type="number" id="agua-tierra"/>
+                        <br>
+                        <br>
+                        <input class="summy" type=button value="   Calcular   " onclick="agua_tierra()"/>
+                        <br>
+                        <br>
+                        <label class="texty" name= lblnum1>Porcentaje de agua en la tierra (%):</label>
+                        <input class="boxy" type="number" name='porcentaje_agua' id="porcentaje_agua"/>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <!--/.Card -->
+            </div>
+            <!--/.Fin ciencia-->
+
+            <!--Inicio ciencia QUIMICA--> 
+            <div class="card card-cascade" id="card-species">
+                <!--Inicio de especie-->
+                <div class="view gradient-card-header blue-gradient">
+                    <h2 class="h2-responsive" id="title-species">Química</h2>
+                    <p></p>
+                </div>
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <form name=formulario method=POST>
+                        <label class="texty" name= lblnum1>pH:</label>
+                        <input class="boxy" type="number" name='num' id="ph-final"/>
                         <br>
                         <br>
                         <label class="texty" name= lblnum1>Conductividad(mv):</label>
@@ -118,48 +153,20 @@
                         <input class="boxy" type="number" id="resistencia"/>
                         <br>
                         <br>
-                        <input class="summy" type=button value="   +   " onclick="intensidad_electrica()"/>
+                        <input class="summy" type=button value="   Calcular   " onclick="intensidad_electrica()"/>
                         <br>
                         <br>
-                        <br>
+                        <label class="texty" name= lblnum1>Conductividad (dS/m):</label>
                         <input class="boxy" type="text" name='intensity' id="intensity"/>
+                        <br>
+                        <br>
                     </form>
                 </div>
                 <!--/.Card -->
             </div>
             <!--/.Fin ciencia-->
 
-            <!--Inicio ciencia-->
-            <div class="card card-cascade" id="card-species">
-                <!--Inicio de especie-->
-                <div class="view gradient-card-header blue-gradient">
-                    <h2 class="h2-responsive" id="title-species">Química</h2>
-                    <p></p>
-                </div>
-                <!--Card content-->
-                <div class="card-body text-center">
-                    <form name=formulario method=POST>
-                        <label class="texty" name= lblnum1>pH Inicial:</label>
-                        <input class="boxy" type="text" name='num' id="ph-inicial"/>
-                        <br>
-                        <br>
-                        <label class="texty" name= lblnum1>pH Final:</label>
-                        <input class="boxy" type="text" name='num' id="ph-final"/>
-                        <br>
-                        <br>
-                        <input class="summy" type=button value="   +   " onclick="ph_rango()"/>
-                        <br>
-                        <br>
-                        <br>
-                        <input class="boxy" type="text" name='phprom' id="phprom"/>
-
-                    </form>
-                </div>
-                <!--/.Card -->
-            </div>
-            <!--/.Fin ciencia-->
-
-            <!--Inicio ciencia-->
+            <!--Inicio ciencia BIOLOGIA-->
             <div class="card card-cascade" id="card-species">
                 <!--Inicio de especie-->
                 <div class="view gradient-card-header blue-gradient">
@@ -174,7 +181,7 @@
             </div>
             <!--/.Fin ciencia-->
 
-            <!--Inicio ciencia-->
+            <!--Inicio porcentaje de eficiencia de crecimiento-->
             <div class="card card-cascade" id="card-species-final">
                 <!--Inicio de especie-->
                 <div class="view gradient-card-header blue-gradient">
@@ -241,6 +248,52 @@
 
     <!-- SCRIPTS -->
 
+    <!--agua en la tierra-->
+    <script type="text/javascript">
+        function agua_tierra(){
+            var tierra = 100;
+            var agua= parseInt(document.getElementById('agua-tierra').value);
+            var porcentaje = (agua*100)/tierra;
+            document.getElementById('porcentaje_agua').value = porcentaje;
+        }        
+    </script>
+
+    <script type="text/javascript">
+        function perfect_conditions(){
+            var ideal_light = [50,60];
+            var ideal_temp = [5,52];
+            var ideal_hum = [5,35];
+            var ideal_twater = [15,35];
+            var ideal_pH = [3.8,6.5];
+            var ideal_cond = [0.04,0.043];
+
+            var light = parseInt(document.getElementById('luz').value);
+            var temp = parseInt(document.getElementById('temp').value);
+            var hum = parseInt(document.getElementById('Humedad').value);
+            var twater = parseInt(document.getElementById('porcentaje_agua').value);
+            var pH = parseInt(document.getElementById('ph-final').value);
+            var cond = parseInt(document.getElementById('intensity').value);
+
+            var conditions = [0.0,0.0,0.0,0.0,0.0,0.0]
+
+            if (light >= ideal_light[0] && light <= ideal_light[1] ) {
+                if (light = ideal_light[0] || light = ideal_light[1]) {
+                    conditions[0] = 0.5;
+                }
+                else{
+                    conditions[0] = 1;
+                }
+            }
+            else if (light < ideal_light[0] || light > ideal_light[1]){
+                conditions = 0.0;
+            }
+
+            if (temp >= ideal_temp[0]) {
+                
+            }
+        }
+    </script>
+
     <!--intensidad electrica-->
     <script language='javascript'>
         function intensidad_electrica(){
@@ -252,15 +305,7 @@
         }
     </script>
 
-    <script type="text/javascript">
-        function ph_rango() {
-            var ph_inicial = parseInt(document.getElementById('ph-inicial').value);
-            var ph_final = parseInt(document.getElementById('ph-final').value);
-            var ph_promedio = (ph_final+ph_inicial)/2
-            document.getElementById('phprom').value = ph_promedio;
 
-        }
-    </script>
 
     <script language='javascript'>
         function result(){
