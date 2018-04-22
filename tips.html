@@ -94,7 +94,7 @@
 
 <!--Card-->
     <div class="container" id="context">
-        <div class="card card-cascade" id="card-tips">
+        <div class="card card-cascade" id="species-cards-begining">
 
             <!--Card image-->
 
@@ -121,7 +121,7 @@
             <!--/.Card content-->
         </div>
 
-        <div class="card card-cascade" id="card-tips">
+        <div class="card card-cascade" id="species-cards">
 
             <!--Card image-->
 
@@ -153,7 +153,7 @@
             </div>
             <!--/.Card content-->
 
-        <div class="card card-cascade" id="card-tips">
+        <div class="card card-cascade" id="species-cards">
 
             <!--Card image-->
 
@@ -195,15 +195,14 @@
             </div>
             <!--/.Card content-->
 
-        <div class="card card-cascade" id="card-tips1">
+        <div class="card card-cascade" id="species-cards-end">
 
-        <!--Card image-->
-
-        <div class="view overlay" id="species-image">
+            <!--Card image-->
+            <div class="view overlay" id="species-image">
             <img src="img/buttons/neonbrand-269297-unsplash.jpg" class="img-fluid" id="tips-image">
             <div class="mask rgba-white-slight"></div>
-        </div>
-        <!--/Card image-->
+            </div>
+            <!--/Card image-->
 
         <!--Card content-->
         <div class="card-body text-center">
@@ -299,6 +298,21 @@
         #navigation-bottom-bar{
           height: 58px;
         }
+
+        #species-cards-begining{
+            display: block;
+            margin-top: 80px;
+        }
+
+        #species-cards{
+            margin-top:20px 
+        }
+
+        #species-cards-end{
+            margin-top: 20px;
+            margin-bottom: 80px;
+        }
+
         #card-button{
             display: block;
             margin-top: 80px;
@@ -325,7 +339,12 @@
 
         #card-species{
             display: block;
-            margin-top: 10px;
+            margin-top: 80px;
+        }
+
+        #card-species-begining{
+            display: block;
+            margin-top: 200px;
         }
 
         #tips-image{
@@ -333,27 +352,14 @@
             margin-top: 20px;
         }
 
-        #card-tips{
-            display: block;
-            margin-top: 80px;
-            margin-left: 40px;
-            margin-right: 40px;
-        }
-
-        #card-tips1{
-            display: block;
-            margin-top: 80px;
-            margin-left: 40px;
-            margin-right: 40px;
-            margin-bottom: 120px;
-        }
 
         #species-image{
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 5px;
-            width: 25%;
+            max-width: 75%;
+            max-height: auto;
 
         }
 

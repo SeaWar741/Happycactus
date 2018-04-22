@@ -185,12 +185,55 @@
             <div class="card card-cascade" id="card-species-final">
                 <!--Inicio de especie-->
                 <div class="view gradient-card-header blue-gradient">
-                    <h2 class="h2-responsive" id="title-species">Estado de crecimiento de la cactacea</h2>
+                    <h2 class="h2-responsive" id="title-species">Estado de crecimiento de la cactácea</h2>
                     <p></p>
                 </div>
                 <!--Card content-->
                 <div class="card-body text-center">
-                    <p>Estado de crecimiento de la cactacea</p>
+                    <table style="width:100%">
+                      <tr>
+                        <th>Condición Actual</th>
+                        <th>Condicion Ideal</th> 
+                        <th>Puntos</th>
+                      </tr>
+                      <tr>
+                        <td>Luz</td>
+                        <td>50% - 60%</td>
+                        <td id="light-points">0</td>
+                      </tr>
+                      <tr>
+                        <td>Temperatura</td>
+                        <td>5°C - 45°C</td>
+                        <td id="temp-points">0</td>
+                      </tr>
+                      <tr>
+                        <td>Humedad</td>
+                        <td>5% - 52%</td>
+                        <td id="hum-points">0</td>
+                      </tr>
+                      <tr>
+                        <td>Agua en la tierra</td>
+                        <td>15% - 35%</td>
+                        <td id="twater-points">0</td>
+                      </tr>
+                      <tr>
+                        <td>pH</td>
+                        <td>3.8 - 6.5</td>
+                        <td id="pH-points">0</td>
+                      </tr>
+                      <tr>
+                        <td>Conductividad</td>
+                        <td>0.04 - 0.043</td>
+                        <td id="cond-points">0</td>
+                      </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <input class="summy" type=button value="   Obtener Resultados   " onclick="perfect_conditions()"/>
+                    <br>
+                    <br>    
+                    <h3 style="text-align: center">Estado de la cactácea</h3>
+                    <h4 id="state" style="color: #37474F;">Desconocido</h4>
                 </div>
                 <!--/.Card -->
             </div>
@@ -261,8 +304,8 @@
     <script type="text/javascript">
         function perfect_conditions(){
             var ideal_light = [50,60];
-            var ideal_temp = [5,52];
-            var ideal_hum = [5,35];
+            var ideal_temp = [5,45];
+            var ideal_hum = [5,52];
             var ideal_twater = [15,35];
             var ideal_pH = [3.8,6.5];
             var ideal_cond = [0.04,0.043];
@@ -275,9 +318,11 @@
             var cond = parseInt(document.getElementById('intensity').value);
 
             var conditions = [0.0,0.0,0.0,0.0,0.0,0.0]
+            var total = 0;
 
+            //luz
             if (light >= ideal_light[0] && light <= ideal_light[1] ) {
-                if (light = ideal_light[0] || light = ideal_light[1]) {
+                if (light == ideal_light[0] || light == ideal_light[1]) {
                     conditions[0] = 0.5;
                 }
                 else{
@@ -285,12 +330,107 @@
                 }
             }
             else if (light < ideal_light[0] || light > ideal_light[1]){
-                conditions = 0.0;
+                conditions[0] = 0.0;
             }
 
-            if (temp >= ideal_temp[0]) {
-                
+            //temperatura
+            if (temp >= ideal_temp[0] && temp <= ideal_temp[1] ) {
+                if (temp == ideal_temp[0] || light == ideal_temp[1]) {
+                    conditions[1] = 0.5;
+                }
+                else{
+                    conditions[1] = 1;
+                }
             }
+            else if (temp < ideal_temp[0] || temp > ideal_temp[1]){
+                conditions[1] = 0.0;
+            }
+
+            //humedad
+            if (hum >= ideal_hum[0] && hum <= ideal_hum[1] ) {
+                if (hum == ideal_hum[0] || hum == ideal_hum[1]) {
+                    conditions[2] = 0.5;
+                }
+                else{
+                    conditions[2] = 1;
+                }
+            }
+            else if (hum < ideal_hum[0] || hum > ideal_hum[1]){
+                conditions[2] = 0.0;
+            }
+
+            //agua en la tierra
+            if (twater >= ideal_twater[0] && twater <= ideal_twater[1] ) {
+                if (twater == ideal_twater[0] || twater == ideal_twater[1]) {
+                    conditions[3] = 0.5;
+                }
+                else{
+                    conditions[3] = 1;
+                }
+            }
+            else if (twater < ideal_twater[0] || twater > ideal_twater[1]){
+                conditions[3] = 0.0;
+            }
+
+            //pH
+            if (pH >= ideal_pH[0] && pH <= ideal_pH[1] ) {
+                if (pH == ideal_pH[0] || pH == ideal_pH[1]) {
+                    conditions[4] = 0.5;
+                }
+                else{
+                    conditions[4] = 1;
+                }
+            }
+            else if (pH < ideal_pH[0] || pH > ideal_pH[1]){
+                conditions[4] = 0.0;
+            }
+
+            //conductividad
+            if (cond >= ideal_cond[0] && cond <= ideal_cond[1] ) {
+                if (cond == ideal_cond[0] || cond == ideal_cond[1]) {
+                    conditions[5] = 0.5;
+                }
+                else{
+                    conditions[5] = 1;
+                }
+            }
+            else if (cond < ideal_cond[0] || cond > ideal_cond[1]){
+                conditions[5] = 0.0;
+            }
+
+            document.getElementById('light-points').innerHTML  = conditions[0];
+            document.getElementById('temp-points').innerHTML  = conditions[1];
+            document.getElementById('hum-points').innerHTML  = conditions[2];
+            document.getElementById('twater-points').innerHTML  = conditions[3];
+            document.getElementById('pH-points').innerHTML  = conditions[4];
+            document.getElementById('cond-points').innerHTML  = conditions[5];
+
+            for (var i = 0; i<conditions.length; i++) {
+                total += conditions[i];
+            }
+
+            total= (total*100)/6;
+
+                if(total >=0 && total <=25){
+                    document.getElementById('state').innerHTML = "Crítico";
+                    document.getElementById('state').style.color = "#ff4444";
+                }
+                else if(total >25 && total <=50){
+                    document.getElementById('state').innerHTML = "Inestable";
+                    document.getElementById('state').style.color = "#ffbb33";
+                }
+                else if(total > 50 && total <=75){
+                    document.getElementById('state').innerHTML = "Regular";
+                    document.getElementById('state').style.color = "#33b5e5";
+                }
+                else if(total > 75 && total <=100){
+                    document.getElementById('state').innerHTML = "Saludable";
+                    document.getElementById('state').style.color = "#00C851";
+                }
+                else{
+                    document.getElementById('state').innerHTML = "Desconocido";
+                    document.getElementById('state').style.color = "#263238";
+                }
         }
     </script>
 
@@ -342,14 +482,19 @@
 </body>
 
 <style type="text/css">
+
+        #state{
+            font-weight: bold;
+        }
         .texty{
             display: block;
             text-align: left;
         }
         #navigation-bottom-bar{
-          height: 58px;
+            height: 58px;
         }
         #title-species{
+            font-weight: 400;
             margin-top: 15px;
             margin-left: 15px;
         }
@@ -452,5 +597,7 @@
           text-decoration: none;
         }
 </style>
+
+
 
 </html>
