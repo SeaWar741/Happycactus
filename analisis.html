@@ -122,7 +122,7 @@
                         <br>
                         <br>
                         <br>
-                        <input class="boxy" type="text" name='resul' id="resul"/>
+                        <input class="boxy" type="text" name='intensity' id="intensity"/>
                     </form>
                 </div>
                 <!--/.Card -->
@@ -147,6 +147,12 @@
                         <input class="boxy" type="text" name='num' id="ph-final"/>
                         <br>
                         <br>
+                        <input class="summy" type=button value="   +   " onclick="ph_rango()"/>
+                        <br>
+                        <br>
+                        <br>
+                        <input class="boxy" type="text" name='phprom' id="phprom"/>
+
                     </form>
                 </div>
                 <!--/.Card -->
@@ -234,13 +240,25 @@
     <!--/.Footer-->
 
     <!-- SCRIPTS -->
+
+    <!--intensidad electrica-->
     <script language='javascript'>
         function intensidad_electrica(){
-            var conductividad= document.getElementById('Conductividad').value;
-            var resistencia= document.getElementById('resistencia').value;
-            var intensidad  = Conductividad/resistencia;
-            var total =(intensidad.value/conductividad.value)/10;
-            document.getElementById('resul').value = total.value;
+            var con= parseInt(document.getElementById('Conductividad').value);
+            var resistencia= parseInt(document.getElementById('resistencia').value);
+            var intensidad  = (con/resistencia)*10;
+            var total =(intensidad.value/con.value)/10;
+            document.getElementById('intensity').value = intensidad;
+        }
+    </script>
+
+    <script type="text/javascript">
+        function ph_rango() {
+            var ph_inicial = parseInt(document.getElementById('ph-inicial').value);
+            var ph_final = parseInt(document.getElementById('ph-final').value);
+            var ph_promedio = (ph_final+ph_inicial)/2
+            document.getElementById('phprom').value = ph_promedio;
+
         }
     </script>
 
